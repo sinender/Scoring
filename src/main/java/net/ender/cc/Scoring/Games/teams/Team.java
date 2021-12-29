@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public enum Team {
     TEAM_1("Emerald Endermen", UUID.fromString("ad80d7cf-8115-4e2a-b15d-e5cc0bf6a9a2")),
-    TEAM_2("Indigo illiagers"),
+    TEAM_2("Indigo illiagers", UUID.fromString("a4aee300-721e-48a4-8e6b-19b44fb34c4b")),
     TEAM_3("Fuschia Phantoms"),
     TEAM_4("Bronze Blazes"),
     TEAM_5("Crimson Creepers"),

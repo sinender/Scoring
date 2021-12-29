@@ -14,7 +14,8 @@ public class Skyblockle extends Games {
     }
 
     public enum SpawnLocations {
-        TEAM_1("skyblockle", 0.5F, 78.0F, -148.5F);
+        TEAM_1("skyblockle", 0.5F, 78.0F, -148.5F),
+        TEAM_2("skyblockle", 0.5F, 78.0F, -148.5F);
 
         String world;
         float x;

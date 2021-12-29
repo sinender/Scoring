@@ -1,5 +1,6 @@
 package net.ender.cc.Scoring.command;
 
+import net.ender.cc.Scoring.listener.custom.GameStartListener;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -12,6 +13,11 @@ public class DebugCMD implements CommandExecutor {
         switch (args[0].toLowerCase()) {
             case "addtime": {
                 currentTimeSeconds += Integer.parseInt(args[1]);
+                break;
+            }
+            case "gamestop": {
+                GameStartListener.stageIndex = 6;
+                currentTimeSeconds = 1798;
                 break;
             }
         }

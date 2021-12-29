@@ -59,6 +59,7 @@ public class GameBoard {
                         "&e&lTeam Score: &f" + TeamData.score.get(getTeam(player)),
                         "",
                         getPosition(player, 1, sorted),
+                        getPosition(player, 2, sorted),
                         getPosition(player, 0, sorted)
         ));
     }
