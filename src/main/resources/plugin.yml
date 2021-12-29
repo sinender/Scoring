@@ -1,0 +1,11 @@
+name: Scoring
+main: net.ender.cc.Scoring.Scoring
+version: 1.0
+api-version: 1.13
+authors: [ Ender ]
+softdepend:
+  - PlaceholderAPI
+  - Spicord
+commands:
+  startgame:
+  debug:
