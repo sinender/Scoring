@@ -131,6 +131,7 @@ public class GameStartListener implements Listener {
                             break;
                         case END:
                             boarder.reset();
+                            cancel();
                             Bukkit.getPluginManager().callEvent(new OnGameEndEvent("Skyblockle"));
                             break;
                     }
