@@ -6,6 +6,7 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ItemStack;
 
@@ -16,34 +17,16 @@ import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
 
-public class MongoPlayerData implements MongoDB {
-
-    private static boolean connected = false;
+public class MongoPlayerData {
 
     private static MongoCollection<Document> col;
 
-    public MongoPlayerData() {
-
-    }
-
-
-    @Override
-    public boolean isConnected() {
-        return connected;
-    }
-
-    @Override
     public void connect() {
         MongoClient client = MongoClients.create("mongodb+srv://admin:SF5R8UH5G3ZeVnUk@cluster0.gfcdb.mongodb.net/test");
-
         MongoDatabase database = client.getDatabase("Tournament");
         col = database.getCollection("playerdata");
-        System.out.println(col);
-        Bukkit.getLogger().info("Successfully connected to MongoDB!");
-        connected = true;
     }
 
-    @Override
     public void setData(UUID uuid, String key, Object value) {
         Document query = new Document("uuid", uuid.toString());
         Document found = col.find(query).first();
@@ -75,84 +58,22 @@ public class MongoPlayerData implements MongoDB {
         }
     }
 
-    @Override
     public Object getData(UUID uuid, String key) {
-
-        Document query = new Document("uuid", uuid.toString());
-        if (query.isEmpty()) {
-            setData(uuid, key, 0D);
-        } else {
-            if (col.find(query).first() != null) {
-                Document found = col.find(query).first();
-                if (found.get(key) != null) {
-                    return found.get(key);
-                } else {
-                    setData(uuid, key, 0D);
-                    Document found2 = col.find(query).first();
-                    return found2.get(key);
-                }
-
-            } else {
-                setData(uuid, key, 0D);
-                if (col.find(query).first() != null) {
-                    Document found2 = col.find(query).first();
-                    return found2.get(key);
-                }
-            }
-
+        Bson query = eq("uuid", uuid.toString());
+        if (col.find(query).first() == null) {
+            setData(uuid, key, null);
         }
-        return null;
-    }
-
-    public Document getDocument(UUID uuid, String key) {
-
-        Document query = new Document("uuid", uuid.toString());
-        if (query.isEmpty()) {
-            setData(uuid, key, 0D);
-        } else {
-            if (col.find(query).first() != null) {
-                Document found = col.find(query).first();
-                if (found != null) {
-                    if (found.get(key) != null) {
-                        return (Document) found.get(key);
-                    } else {
-                        setData(uuid, key, new Document());
-                        Document found2 = col.find(query).first();
-                        if (found2 != null)
-                            return (Document) found2.get(key);
-                    }
-                }
-            } else {
-                setData(uuid, key, new Document());
-                if (col.find(query).first() != null) {
-                    Document found2 = col.find(query).first();
-                    if (found2 != null) {
-                        return (Document) found2.get(key);
-                    }
-                }
-            }
-
-        }
-        return null;
+        return col.find(query);
     }
 
     public Document getPlayerDocument(UUID uuid) {
-
-        Document query = new Document("uuid", uuid.toString());
-        if (col.find(query).first() != null) {
-            Document found = col.find(query).first();
-            if (found != null) {
-                return found;
-            }
-        }
-        return query;
+        return col.find(eq("uuid", uuid.toString())).first();
     }
 
-    @Override
+    
     public boolean remove(UUID uuid) {
-        Document query = new Document("uuid", uuid.toString());
+        Bson query = eq("uuid", uuid);
         Document found = col.find(query).first();
-
         if (found == null) return false;
 
         col.deleteOne(found);
@@ -160,15 +81,13 @@ public class MongoPlayerData implements MongoDB {
     }
 
     public void createPlayerData(UUID uuid) {
-        Document query = new Document("uuid", uuid.toString());
-        Document found = col.find(query).first();
-
+        Document found = col.find(eq("uuid", uuid.toString())).first();
         if (found != null) return;
 
         setData(uuid, "totalScore", 0);
     }
 
-    @Override
+    
     public List<Document> getAllDocuments() {
         FindIterable<Document> docs = col.find();
         MongoCursor<Document> cursor = docs.iterator();
