@@ -7,6 +7,7 @@ import net.ender.cc.Scoring.command.GameStartCMD;
 import net.ender.cc.Scoring.database.MongoPlayerData;
 import net.ender.cc.Scoring.listener.PlayerDeathListener;
 import net.ender.cc.Scoring.listener.PlayerDismountListener;
+import net.ender.cc.Scoring.listener.PlayerDoThing;
 import net.ender.cc.Scoring.listener.PlayerJoinListener;
 import net.ender.cc.Scoring.listener.custom.GameEndListener;
 import net.ender.cc.Scoring.listener.custom.GameStartListener;
@@ -38,6 +39,7 @@ public class Scoring extends JavaPlugin
         pm.registerEvents(new PlayerDismountListener(), this);
         pm.registerEvents(new PlayerDeathListener(), this);
         pm.registerEvents(new GameEndListener(), this);
+        pm.registerEvents(new PlayerDoThing(), this);
 
         getCommand("startgame").setExecutor(new GameStartCMD());
         getCommand("debug").setExecutor(new DebugCMD());
