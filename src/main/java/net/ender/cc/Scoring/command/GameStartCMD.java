@@ -16,17 +16,8 @@ public class GameStartCMD implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (sender instanceof Player) {
             Player player = (Player) sender;
-            switch (args[0].toLowerCase()) {
-                case "skyblockle": {
-                    new Skyblockle().start();
-                    break;
-                }
-                case "test": {
-                    for (Team team : TeamData.score.keySet()) {
-                        TeamData.score.put(team, getRandom(0, 100));
-                    }
-                    break;
-                }
+            if ("skyblockle".equalsIgnoreCase(args[0])) {
+                new Skyblockle().start();
             }
         }
         return false;

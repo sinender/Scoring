@@ -7,6 +7,7 @@ import net.ender.cc.Scoring.Games.player.PlayerData;
 import net.ender.cc.Scoring.Games.teams.Team;
 import net.ender.cc.Scoring.Games.teams.TeamData;
 import net.ender.cc.Scoring.Scoring;
+import net.ender.cc.Scoring.events.OnGameEndEvent;
 import net.ender.cc.Scoring.events.OnGameStartEvent;
 import net.ender.cc.Scoring.util.scoreboard.GameBoard;
 import org.bukkit.Bukkit;
@@ -25,6 +26,7 @@ import java.util.*;
 
 public class GameStartListener implements Listener {
     public static ArrayList<Player> players = new ArrayList<>();
+    public static ArrayList<Player> playersAlive = new ArrayList<>();
     public static HashMap<Team, ArrayList<Player>> teamsToPlayers = new HashMap<>();
     public static ArrayList<Team> teams = new ArrayList<>();
     public static WorldBorder boarder = Bukkit.getWorld("skyblockle").getWorldBorder();
@@ -38,6 +40,7 @@ public class GameStartListener implements Listener {
                 for (UUID uuid : uuids) {
                     if (Bukkit.getOfflinePlayer(uuid).isOnline()) {
                         players.add(Bukkit.getPlayer(uuid));
+                        playersAlive.add(Bukkit.getPlayer(uuid));
                         tempPlayers.add(Bukkit.getPlayer(uuid));
                         PlayerData.score.put(uuid, 0);
                     }
@@ -128,6 +131,7 @@ public class GameStartListener implements Listener {
                             break;
                         case END:
                             boarder.reset();
+                            Bukkit.getPluginManager().callEvent(new OnGameEndEvent("Skyblockle"));
                             break;
                     }
                 }
