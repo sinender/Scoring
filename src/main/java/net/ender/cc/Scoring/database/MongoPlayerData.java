@@ -22,7 +22,7 @@ public class MongoPlayerData {
     private static MongoCollection<Document> col;
 
     public void connect() {
-        MongoClient client = MongoClients.create("mongodb+srv://admin:SF5R8UH5G3ZeVnUk@cluster0.gfcdb.mongodb.net/test");
+        MongoClient client = MongoClients.create("");
         MongoDatabase database = client.getDatabase("Tournament");
         col = database.getCollection("playerdata");
     }
