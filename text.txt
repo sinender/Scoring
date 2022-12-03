@@ -1,0 +1,84 @@
+arcane essence: ਀ (0A00)
+clay blend: ਋ (0A0B)
+cobalt axe: ਌ (0A0C)
+cobalt hoe: ਍ (0A0D)
+cobalt ingot: ਎ (0A0E)
+cobalt ore: ਑ (0A11)
+cobalt pickaxe: ਒ (0A12)
+cobalt plating: ਩ (0A29)
+cobalt shovel: ਱ (0A31)
+cobalt sword: ਴ (0A34)
+earthen boots: ਷ (0A37)
+earthen chestplate: ਺ (0A3A)
+earthen core: ਻ (0A3B)
+earthen greatsword: ਽ (0A3D)
+earthen hammer: ੃ (0A43)
+earthen helmet: ੄ (0A44)
+earthen leggings: ੅ (0A45) 
+earthen module: ੆ (0A46) 
+earthen scimitar: ੉ (0A49) 
+fire essence: ੊ (0A4A)
+fire manastone: ੎ (0A4E)
+forest boots: ੏ (0A4F)
+forest chestplate: ੐ (0A50)
+forest essence: ੒ (0A52)
+forest helmet: ੓ (0A53)
+forest leggings: ੔ (0A54)
+greater manastone: ੕ (0A55) 
+heavy plating: ੖ (0A56) 
+infected heart: ੗ (0A57) 
+infernal staff: ੘ (0A58) 
+leather plating: ੝ (0A5D)
+lesser manastone: ੟ (0A5F) 
+manastone: ੠ (0A60) 
+manastone staff: ੡ (0A61)
+mithril: ੢ (0A62) 
+mithril boots: ੣ (0A63) 
+mithril chestplate: ੤ (0A64) 
+mithril fragment: ੥ (0A65) 
+mithril helmet: ੶ (0A76) 
+mithril leggings: ੷ (0A77) 
+mithril plating: ੸ (0A78) 
+mithril shard: ੹ (0A79) 
+mithril sword: ੺ (0A7A)
+mossy boots
+mossy chestplate
+mossy helmet
+mossy leggings
+platnium axe
+platnium hoe
+platnium ingot
+platnium ore
+platnium pickaxe
+platnium plating
+platnium shovel
+platnium sword
+prismite
+prismite axe
+prismite hoe
+prismite pickaxe
+prismite scythe
+prismite shovel
+prismite staff
+prismite sword
+reinforced clay
+reinforced plating
+scorched hide
+silver axe
+silver hoe
+silver ingot
+silver ore
+silver pickaxe
+silver plating
+silver shovel
+skeletal blade
+slime on a stick
+wind essence
+wind manastone
+withered blade
+withered bone
+withered boots
+withered chestplate
+withered helmet
+withered leggings
+withered plate
